@@ -24,10 +24,12 @@ return {
       require("mason").setup({})
       require("mason-lspconfig").setup({
         ensure_installed = {
+		  "pylsp",
           "ts_ls",
           "prismals",
           "jdtls",
           "gopls",
+		  "rust_analyzer"
         },
         automatic_installation = true,
       })
@@ -36,8 +38,8 @@ return {
       lsp.on_attach(function(client, bufnr)
         local opts = { buffer = bufnr, remap = false }
         vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-        vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
         vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
+		vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
         vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
         vim.keymap.set("n", "<F2>", vim.lsp.buf.rename, opts)
         -- add any additional mappings here
@@ -75,6 +77,23 @@ return {
           end,
         },
       })
+
+	 -- for rust-lsp
+		lsp.configure("rust_analyzer", {
+		  settings = {
+			["rust-analyzer"] = {
+			  cargo = {
+				allFeatures = true,
+			  },
+			  check = {
+				command = "clippy",
+			  },
+			  procMacro = {
+				enable = true,
+			  },
+			},
+		  },
+		})
 
       lsp.setup()
     end,

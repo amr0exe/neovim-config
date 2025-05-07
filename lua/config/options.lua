@@ -1,8 +1,8 @@
 
 -- for line-numbers 
-vim.opt.number = true
-vim.opt.relativenumber = true
-vim.opt.fillchars = { eob = " " }
+--vim.opt.number = true
+--vim.opt.relativenumber = true
+--vim.opt.fillchars = { eob = " " }
 
 -- for tab-based indent
 vim.opt.tabstop = 4
@@ -29,5 +29,18 @@ vim.api.nvim_create_autocmd("BufEnter", {
   end,
 })
 
+-- for error diagnostics
+vim.diagnostic.config({
+	virtual_text = {
+		prefix = "E",
+		spacing = 2,
+	},
+	signs = false, 
+	underline = false,
+	update_in_insert = false,
+	severity_sort = true,
+})
+
 -- block_style_cursor
 --vim.o.guicursor = "n-v-c:block,i-ci-ve:block,r-cr-o:hor20"
+
