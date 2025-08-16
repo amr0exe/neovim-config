@@ -5,8 +5,8 @@ return {
             require("lualine").setup({
                 options = {
                     theme = "iceberg_dark",
-					section_separators = {'|', '|'},
-					component_separators = {'|', '|'}
+                    section_separators = {'|', '|'},
+                    component_separators = {'|', '|'}
                 },
                 sections = {
                     lualine_a = {'mode'},
@@ -16,7 +16,7 @@ return {
                     },
                     lualine_x = { 
                         'searchcount',
-                    {
+                        {
                             "diagnostics",
                             sources = {  'nvim_lsp', },
                             sections = { 'error','warn', 'info'},

@@ -1,5 +1,3 @@
-
-
 -- set the leader key to space
 vim.g.mapleader = " "
 
@@ -15,6 +13,6 @@ vim.keymap.set('n', '<s-tab>', ':bprevious<cr>', { noremap = true, silent = true
 
 -- for errors/hover
 vim.keymap.set("n", "E", function()
-	vim.diagnostic.open_float()
+    vim.diagnostic.open_float()
 end, { noremap = true, silent = true, desc = "Show diagnostics info" }
 )
