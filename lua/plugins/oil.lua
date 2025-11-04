@@ -14,17 +14,13 @@ return {
 
                 -- floating window-config
                 float = {
-                    padding = 2,	
-                    max_width = 0.8,
-                    max_height = 0.8, 
-                    border = "rounded",
-                    win_options = {
-                        winblend = 0,
-                    },
+                    max_width = 0.6,
+                    max_height = 0.6, 
                     override = function(conf)
                         return conf
                     end,
-                }
+                },
+
             })
 
             -- oil keybindings

@@ -21,6 +21,9 @@ vim.opt.cursorline = true
 -- prevent line-break
 vim.o.wrap = false
 
+-- for smoothscroll
+vim.o.smoothscroll = true
+
 -- remove auto-identing comment
 vim.api.nvim_create_autocmd("BufEnter", {
     callback = function()
