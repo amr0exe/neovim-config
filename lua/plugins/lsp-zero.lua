@@ -64,14 +64,14 @@ return {
             cmp.setup({
                 mapping = cmp.mapping.preset.insert({
                     ["<C-L>"] = cmp.mapping.confirm({ select = true }),
-                    ["<TAB>"] = cmp.mapping(function(fallback)
+                    ["<C-N>"] = cmp.mapping(function(fallback)
                         if cmp.visible() then
                             cmp.select_next_item()
                         else
                             fallback()
                         end
                     end),
-                    ["<S-TAB>"] = cmp.mapping(function(fallback)
+                    ["<C-P>"] = cmp.mapping(function(fallback)
                         if cmp.visible() then
                             cmp.select_prev_item()
                         else
@@ -92,7 +92,14 @@ return {
             })
             cmp.setup.filetype({'markdown', 'txt'}, {
                 sources = {
-                    { name = 'buffer' },
+                    {
+                        name = 'buffer',
+                        option = {
+                            get_buffers = function ()
+                                return { vim.api.nvim_get_current_buf() }
+                            end
+                        }
+                    },
                     { name = 'path' },
                     { name = 'nvim_lsp' },
                 }

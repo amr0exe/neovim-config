@@ -15,7 +15,7 @@ return {
                 disable = { "xml" },
             },
 
-            indent = { enable = true },
+            indent = { enable = false },
 
             autotag = {
                 enable = true,
@@ -38,5 +38,6 @@ return {
     {
         "windwp/nvim-ts-autotag",
         dependencies = { "nvim-treesitter/nvim-treesitter" },
+        opts = {}
     },
 }

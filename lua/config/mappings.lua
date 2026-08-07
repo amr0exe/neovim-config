@@ -57,3 +57,21 @@ vim.api.nvim_create_autocmd("FileType", {
     end
 })
 
+-- small term at bottom
+vim.keymap.set("n", "<space>st", function ()
+    vim.cmd.vnew()
+    vim.cmd.term()
+    vim.cmd.wincmd("J")
+    vim.api.nvim_win_set_height(0, 10)
+end)
+
+-- hot-reload
+vim.keymap.set("n", "<space><space>i", function ()
+    vim.cmd("source %")
+    print("config reloaded")
+end)
+
+-- print check
+vim.keymap.set("n", "<space><space>pr", function ()
+    print("check check check")
+end)

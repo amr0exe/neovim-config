@@ -52,7 +52,7 @@ return {
         config = function()
             -- NOTE: you do not need to call setup if you don't want to.
             require("vague").setup()
-            --vim.cmd("colorscheme vague")
+            vim.cmd("colorscheme vague")
         end
     },
 
@@ -81,7 +81,7 @@ return {
         priority = 1000,
         config = function ()
             require("oldworld").setup()
-            vim.cmd("colorscheme oldworld")
+            --vim.cmd("colorscheme oldworld")
         end
     },
 
