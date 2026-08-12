@@ -60,6 +60,19 @@ return {
             "saghen/blink.cmp",
         },
         config = function()
+            vim.api.nvim_create_autocmd("LspAttach", {
+                callback = function(event)
+                    local opts = { buffer = event.buf }
+
+                    vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)        -- go_to_def
+                    vim.keymap.set("n", "gra", vim.lsp.buf.code_action, opts)      -- code_actions
+                    vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)    -- goto implementation
+                    vim.keymap.set("n", "grr", vim.lsp.buf.references, opts)       -- references of used
+                    vim.keymap.set("n", "grn", vim.lsp.buf.rename, opts)           -- rename symbol package project-wide
+                    vim.keymap.set("n", "<C-K>", vim.lsp.buf.signature_help, opts) -- lsp-signature help from inside_function
+                end
+            })
+
             vim.lsp.config("*", {
                 capabilities = require("blink.cmp").get_lsp_capabilities(),
             })
